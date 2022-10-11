@@ -4,6 +4,7 @@ import MVP.Model.Classes.Contact;
 import MVP.Model.Classes.ContactTypes.Phone;
 import MVP.Model.Classes.ContactTypes.PhoneList;
 import MVP.Model.Classes.Exceptions.InvalidParameter;
+import MVP.View.InputView;
 import MVP.View.View;
 
 /**
@@ -33,10 +34,20 @@ public class Program {
 
 
         Model model = new Model();
-        View view = new View();
+        InputView view = new InputView();
 
         model.addContact(contact);
         view.showContacts(model.getContacts());
+
+
+        String name1 = view.getFirstName();
+        String surname1 = view.getSecondName();
+        Phone phone = view.getPhone();
+        
+
+        Contact newContact = new Contact(name1, surname1, new PhoneList(phone));
+
+        model.addContact(newContact);
 
 
         // contact.setPhones(new PhoneList(view.getPhone()));

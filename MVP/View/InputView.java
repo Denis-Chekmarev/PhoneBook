@@ -28,20 +28,17 @@ public class InputView extends View implements IView{
 
     @Override
     public String getFirstName() {
-        // TODO Auto-generated method stub
-        return null;
+        return getInput("Имя: ");
     }
 
     @Override
     public String getSecondName() {
-        // TODO Auto-generated method stub
-        return null;
+        return getInput("Фамилия: ");
     }
 
     @Override
     public String getAdress() {
-        // TODO Auto-generated method stub
-        return null;
+        return getInput("Адрес: ");
     }
 
     public void closeScanner(){

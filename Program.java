@@ -5,7 +5,6 @@ import MVP.Model.Classes.ContactTypes.Phone;
 import MVP.Model.Classes.ContactTypes.PhoneList;
 import MVP.Model.Classes.Exceptions.InvalidParameter;
 import MVP.View.InputView;
-import MVP.View.View;
 
 /**
  * Создать телефонный справочник с возможностью импорта и экспорта данных в нескольких форматах.

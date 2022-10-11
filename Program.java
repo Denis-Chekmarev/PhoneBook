@@ -1,10 +1,8 @@
 
 import MVP.Model.Model;
 import MVP.Model.Classes.Contact;
-import MVP.Model.Classes.ContactTypes.Email;
 import MVP.Model.Classes.ContactTypes.Phone;
 import MVP.Model.Classes.ContactTypes.PhoneList;
-import MVP.Model.Classes.Exceptions.IncorrectEmail;
 import MVP.Model.Classes.Exceptions.InvalidParameter;
 import MVP.View.View;
 
@@ -39,7 +37,6 @@ public class Program {
 
         model.addContact(contact);
         view.showContacts(model.getContacts());
-
 
 
         // contact.setPhones(new PhoneList(view.getPhone()));

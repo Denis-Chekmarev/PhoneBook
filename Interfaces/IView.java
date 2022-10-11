@@ -3,7 +3,6 @@ package Interfaces;
 import java.util.List;
 
 import MVP.Model.Classes.Contact;
-import MVP.Model.Classes.ContactTypes.Email;
 import MVP.Model.Classes.ContactTypes.Phone;
 import MVP.Model.Classes.Exceptions.InvalidParameter;
 
@@ -11,7 +10,7 @@ public interface IView {
 
     public Phone getPhone() throws InvalidParameter;
 
-    public Email getEmail();
+    public String getEmail();
 
     public String getFirstName();
 

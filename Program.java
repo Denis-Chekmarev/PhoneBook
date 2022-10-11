@@ -4,6 +4,7 @@ import MVP.Model.Classes.Contact;
 import MVP.Model.Classes.ContactTypes.Email;
 import MVP.Model.Classes.ContactTypes.Phone;
 import MVP.Model.Classes.ContactTypes.PhoneList;
+import MVP.Model.Classes.Exceptions.IncorrectEmail;
 import MVP.Model.Classes.Exceptions.InvalidParameter;
 import MVP.View.View;
 
@@ -20,29 +21,29 @@ public class Program {
         String surname = "Chekamrev";
         Phone myPhone = new Phone("+7-962-840-6513");
         Phone mySecondPhone = new Phone("+7-963-842-55-44");
-        Email email = new Email("chekmarevdenchik5@gmail.com");
+        // Email email = new Email("chekmarevdenchik5@gmail.com");
 
         PhoneList phoneList = new PhoneList(myPhone);
         phoneList.addAdditionPhone(mySecondPhone);
 
         Contact contact = new Contact(name, surname, phoneList);
-        contact.setEmail(email);
+        // contact.setEmail(email);
 
 
-        Contact contact2 = new Contact("Вася", "Зайчиков", phoneList);
-        contact2.setEmail(email);
+        // Contact contact2 = new Contact("Вася", "Зайчиков", phoneList);
+        // contact2.setEmail(email);
 
 
         Model model = new Model();
         View view = new View();
 
         model.addContact(contact);
-        model.addContact(contact2);
         view.showContacts(model.getContacts());
 
-        contact.setPhones(new PhoneList(view.getPhone()));
 
-        model.removeContact(contact2);
+
+        // contact.setPhones(new PhoneList(view.getPhone()));
+        // model.removeContact(contact2);
         view.showContacts(model.getContacts());
     }
 }

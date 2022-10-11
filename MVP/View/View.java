@@ -22,9 +22,12 @@ public class View implements IView {
     }
 
     @Override
-    public Email getEmail() {
-        // TODO Auto-generated method stub
-        return null;
+    public String getEmail() {
+        Scanner in = new Scanner(System.in);
+        System.out.printf("Email: ");
+        String email = in.nextLine();
+        in.close();
+        return email;
     }
 
     @Override

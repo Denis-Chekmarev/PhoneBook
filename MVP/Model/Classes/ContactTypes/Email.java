@@ -1,13 +1,13 @@
 package MVP.Model.Classes.ContactTypes;
-import MVP.Model.Classes.Exceptions.InvalidParameter;
+import MVP.Model.Classes.Exceptions.IncorrectEmail;
 
 public class Email {
     
     private String email;
 
-    public Email(String email) throws InvalidParameter {
-        if (!email.contains("@")){
-            throw new InvalidParameter("invalid email");
+    public Email(String email) throws IncorrectEmail {
+        if ( (!email.contains("@")) || (!email.contains("."))){
+            throw new IncorrectEmail("Неверный Email");
         }
         this.email = email;
     }

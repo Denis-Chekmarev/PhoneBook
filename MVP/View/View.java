@@ -2,25 +2,24 @@ package MVP.View;
 
 import java.util.List;
 
+import Interfaces.IView;
+import MVP.Model.Config;
 import MVP.Model.Classes.Contact;
 
 
-public class View {
+public abstract class View implements IView{
 
-    enum menuRanks{
-        FIRST,
-        SECOND,
-    }
-
-    public void menu(){
-        System.out.println("1. Добавить контакт\n2. Показать контакты\n3. Удалить контакт\n4. Экспорт в формате разделитель - строка\n5. Экспорт в формате - разделитель ;\n6. Выход\nКоманда: ");
+    
+    
+    public void showMenu(){
+        System.out.printf("1. %s\n2. %s\n3. %s\n4. %s\n5. %s\n6. %s\n", Config.Task.SHOW.getTitle(), Config.Task.CHANGE.getTitle(), Config.Task.DELETE.getTitle(), Config.Task.EXPORT_STRING.getTitle(), Config.Task.EXPORT_CSV.getTitle(), Config.Task.EXIT.getTitle());
         
     }
 
     
     public void showContacts(List<Contact> contacts) {
         if(contacts.isEmpty()){
-            System.out.println("Контактов нет");
+            System.out.println(Config.ConsoleStrings.CONTACTEMPTY);
         }
         StringBuilder sb = new StringBuilder();
         for (Contact contact : contacts) {

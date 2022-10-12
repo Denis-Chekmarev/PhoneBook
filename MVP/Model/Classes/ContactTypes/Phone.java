@@ -1,4 +1,5 @@
 package MVP.Model.Classes.ContactTypes;
+import MVP.Model.Config;
 import MVP.Model.Classes.Exceptions.InvalidParameter;
 
 public class Phone {
@@ -11,7 +12,7 @@ public class Phone {
 
     public Phone(String phoneNumber) throws InvalidParameter {
         if (phoneNumber.isEmpty()){
-            throw new InvalidParameter ("invalid phone number");
+            throw new InvalidParameter (Config.Incorrect.Phone.getTitle());
         }
         this.phoneNumber = phoneNumber;
     }

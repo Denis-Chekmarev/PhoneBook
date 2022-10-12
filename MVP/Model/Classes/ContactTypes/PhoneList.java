@@ -1,6 +1,8 @@
 package MVP.Model.Classes.ContactTypes;
 import java.util.ArrayList;
 
+import MVP.Model.Config;
+
 public class PhoneList {
     
     private Phone mainPhone;
@@ -29,7 +31,7 @@ public class PhoneList {
         if (this.additionPhones.isEmpty()){
             return mainPhone.toString();
         }
-        String allPhones = String.format("%s, Дополнительные номера:", mainPhone);
+        String allPhones = String.format("%s, %s", mainPhone, Config.ConsoleStrings.ADDITIONPHONES);
         for (Phone phone : additionPhones) {
             allPhones = String.format("%s %s", allPhones, phone);
         }

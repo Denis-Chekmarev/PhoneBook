@@ -1,5 +1,6 @@
 package MVP.Model.Classes;
 
+import MVP.Model.Config;
 import MVP.Model.Classes.ContactTypes.Email;
 import MVP.Model.Classes.ContactTypes.Phone;
 import MVP.Model.Classes.ContactTypes.PhoneList;
@@ -54,8 +55,8 @@ public class Contact {
         builder.append("").append(firstName).append(" ");
         builder.append( (this.lastName == null) ? "" : lastName);
         builder.append(", ").append(phones);
-        builder.append( (this.address == null) ? "" : ", Адрес: " + address);
-        builder.append( (this.email == null) ? "" : ", email: " + email);
+        builder.append( (this.address == null) ? "" : ", " + Config.ConsoleStrings.ADDRESS.getTitle() + " " + address);
+        builder.append( (this.email == null) ? "" : ", " + Config.ConsoleStrings.EMAIL.getTitle() + "" + email);
 
         return builder.toString();
     }

@@ -24,7 +24,6 @@ public class Model {
     }
 
 
-
     public List<Contact> getContacts() {
         return contacts;
     }

@@ -1,68 +1,49 @@
 package MVP.Presenter;
 
+import MVP.Model.Config;
 import MVP.Model.Model;
-
-// import MVP.Model.Model;
-// import MVP.View.View;
+import MVP.Model.Classes.Contact;
+import MVP.Model.Classes.Exceptions.InvalidParameter;
+import MVP.View.View;
 
 public class Presenter {
 
-    private enum Task{
-        ADD ("Добавить"),
-        DELETE ("Удалить"),
-        SHOW ("Показать"),
-        EXPORT ("Екпортировать");
+    private Model model;
+    private View view;
 
-        private String title;
 
-        Task(String title){
-            this.title = title;
-        }
-
-        public String getTitle(){
-            return title;
-        }
+    public Presenter(Model model, View view) {
+        this.model = model;
+        this.view = view;
     }
     
-    Task task = Task.ADD;
 
-    
-
-    // private Model model;
-    // private View view;
-
-
-    // public Presenter(Model model, View view) {
-    //     this.model = model;
-    //     this.view = view;
-    // }
-    
-
-    // public void start(){
+    public void mainLoop() throws InvalidParameter{
+        Boolean run = true;
+        String userInput;
         
-    // }
+        while (run){
+            view.showMenu();
+            userInput = view.getInput(Config.ConsoleStrings.COMMAND.getTitle());
 
-
-
-
-
-
-        // Boolean isValid = true;
-
-        // do{
-        //     try{
-        //         String em = view.getEmail();
-        //         if (! (em == "")){
-        //             Email email = new Email( em );
-        //             contact.setEmail(email);
-        //             isValid = true;
-        //         }
-        //     }
-        //     catch (IncorrectEmail e){
-        //         System.out.println("no");
-        //         isValid = false;
-        //         view.showError(e.toString());
-        //     }
-        // }
-        // while (! isValid);
+            switch (Integer.parseInt(userInput)){
+                case 1:
+                    model.addContact(new Contact(view.getFirstName(), view.getPhone()));
+                    view.showContacts(model.getContacts());
+                    break;
+                case 2: 
+                    break;
+                case 3: 
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    break;
+                case 6:
+                    run = false;
+                    break;
+            }
+            System.out.println(Config.Task.EXIT.getTitle());
+        }
+    }
 }

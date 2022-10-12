@@ -21,4 +21,6 @@ public interface IView {
     public void showContacts(List<Contact> contacts);
 
     public void showError(String errorMessage);
+
+    public String getInput(String msg);
 }

@@ -1,4 +1,5 @@
 package MVP.Model.Classes.ContactTypes;
+import MVP.Model.Config;
 import MVP.Model.Classes.Exceptions.IncorrectEmail;
 
 public class Email {
@@ -7,7 +8,7 @@ public class Email {
 
     public Email(String email) throws IncorrectEmail {
         if ( (!email.contains("@")) || (!email.contains("."))){
-            throw new IncorrectEmail("Неверный Email");
+            throw new IncorrectEmail(Config.Incorrect.EMAIL.getTitle());
         }
         this.email = email;
     }

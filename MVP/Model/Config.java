@@ -24,13 +24,16 @@ public class Config {
 
     private static String incorrectEmail = "Неверный Email";
     private static String incorrectPhone = "Неверный Телефон";
+    private static String notEmail = "нет почты";
     private static String additionPhones = "Дополнительные номера:";
+    private static String contunue = "Для продолжения нажмите Enter";
     // Дополнительные номера:
 
 
     public static enum Incorrect{
         EMAIL(incorrectEmail),
-        Phone(incorrectPhone);
+        Phone(incorrectPhone),
+        NONEMAIL(notEmail);
 
         private String title;
 
@@ -73,7 +76,8 @@ public class Config {
         SURNAME(surname),
         ADDRESS(adress),
         COMMAND(command),
-        ADDITIONPHONES(additionPhones);
+        ADDITIONPHONES(additionPhones),
+        CONTUNUE(contunue);
 
 
         private String title;

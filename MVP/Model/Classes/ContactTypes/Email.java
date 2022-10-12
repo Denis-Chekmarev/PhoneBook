@@ -7,10 +7,15 @@ public class Email {
     private String email;
 
     public Email(String email) throws IncorrectEmail {
-        if ( (!email.contains("@")) || (!email.contains("."))){
-            throw new IncorrectEmail(Config.Incorrect.EMAIL.getTitle());
+        if (email.isEmpty()){
+            this.email = Config.Incorrect.NONEMAIL.getTitle();
         }
-        this.email = email;
+        else{
+            if ( (!email.contains("@")) || (!email.contains("."))){
+                throw new IncorrectEmail(Config.Incorrect.EMAIL.getTitle());
+            }
+            this.email = email;
+        }
     }
 
     @Override

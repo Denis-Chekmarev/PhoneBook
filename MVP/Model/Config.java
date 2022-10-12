@@ -3,8 +3,8 @@ package MVP.Model;
 
 public class Config {
     
-    private String pathCSV = "db.csv";
-    private String pathString = "db.txt";
+    private static String pathCSV = "db.csv";
+    private static String pathString = "db.txt";
 
     private static String add = "Добавить";
     private static String change = "Изменить";
@@ -27,13 +27,16 @@ public class Config {
     private static String notEmail = "нет почты";
     private static String additionPhones = "Дополнительные номера:";
     private static String contunue = "Для продолжения нажмите Enter";
-    // Дополнительные номера:
+
+    private static String errorConnect = "Не удалось подключиться к базе данных";
+    private static String successExport = "Сохранение успешно";
 
 
     public static enum Incorrect{
         EMAIL(incorrectEmail),
         Phone(incorrectPhone),
-        NONEMAIL(notEmail);
+        NONEMAIL(notEmail),
+        ERROR_CONNECT(errorConnect);
 
         private String title;
 
@@ -77,7 +80,8 @@ public class Config {
         ADDRESS(adress),
         COMMAND(command),
         ADDITIONPHONES(additionPhones),
-        CONTUNUE(contunue);
+        CONTUNUE(contunue),
+        SUCCESS_EXPORT(successExport);
 
 
         private String title;
@@ -89,5 +93,15 @@ public class Config {
         public String getTitle(){
             return title;
         }
+    }
+
+
+    public static String getPathCSV() {
+        return pathCSV;
+    }
+
+
+    public static String getPathString() {
+        return pathString;
     }
 }

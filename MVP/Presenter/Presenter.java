@@ -1,11 +1,14 @@
 package MVP.Presenter;
 
+import Interfaces.IExport;
 import MVP.Model.Config;
 import MVP.Model.Model;
 import MVP.Model.Classes.Contact;
 import MVP.Model.Classes.ContactTypes.Email;
 import MVP.Model.Classes.ContactTypes.PhoneList;
 import MVP.Model.Classes.Exceptions.InvalidParameter;
+import MVP.Model.Classes.Export.ExportTypes.CSVexport;
+import MVP.Model.Classes.Export.ExportTypes.StringSeparatorExport;
 import MVP.View.View;
 
 public class Presenter {
@@ -23,6 +26,7 @@ public class Presenter {
     public void mainLoop() throws InvalidParameter{
         Boolean run = true;
         String userInput;
+        IExport export;
         
         while (run){
             view.showMenu();
@@ -42,18 +46,36 @@ public class Presenter {
 
                 // change  
                 case 3: 
+                    // TODO ... 
                     break;
 
                 // delete 
                 case 4:
+                    // TODO ...
                     break;
 
                 // export 1
                 case 5:
+                    export = new StringSeparatorExport(Config.getPathString());
+                    if (export.connect() && export.saveInFile()){
+                        view.showError(Config.ConsoleStrings.SUCCESS_EXPORT.getTitle());
+                    }
+                    else{
+                        view.showError(Config.Incorrect.ERROR_CONNECT.getTitle());
+                    }
+                    view.getInput(Config.ConsoleStrings.CONTUNUE.getTitle());
                     break;
 
                 // export 2
                 case 6:
+                    export = new CSVexport(Config.getPathString());
+                    if (export.connect() && export.saveInFile()){
+                        view.showError(Config.ConsoleStrings.SUCCESS_EXPORT.getTitle());
+                    }
+                    else{
+                        view.showError(Config.Incorrect.ERROR_CONNECT.getTitle());
+                    } 
+                    view.getInput(Config.ConsoleStrings.CONTUNUE.getTitle());
                     break;
                 
                 // exit 

@@ -1,4 +1,6 @@
 
+import java.io.IOException;
+
 import MVP.Model.Model;
 import MVP.Model.Classes.Exceptions.InvalidParameter;
 import MVP.Presenter.Presenter;
@@ -13,7 +15,7 @@ import MVP.View.View;
 public class Program {
     
 
-    public static void main(String[] args) throws InvalidParameter {
+    public static void main(String[] args) throws InvalidParameter, IOException {
         
         View view = new InputView();
         Model model = new Model();

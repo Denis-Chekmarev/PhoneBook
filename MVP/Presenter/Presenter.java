@@ -1,5 +1,7 @@
 package MVP.Presenter;
 
+import java.io.IOException;
+
 import Interfaces.IExport;
 import MVP.Model.Config;
 import MVP.Model.Model;
@@ -23,7 +25,7 @@ public class Presenter {
     }
     
 
-    public void mainLoop() throws InvalidParameter{
+    public void mainLoop() throws InvalidParameter, IOException{
         Boolean run = true;
         String userInput;
         IExport export;
@@ -57,24 +59,26 @@ public class Presenter {
                 // export 1
                 case 5:
                     export = new StringSeparatorExport(Config.getPathString());
-                    if (export.connect() && export.saveInFile()){
+                    if (export.connect() && export.saveInFile(model.getContacts())){
                         view.showError(Config.ConsoleStrings.SUCCESS_EXPORT.getTitle());
                     }
                     else{
                         view.showError(Config.Incorrect.ERROR_CONNECT.getTitle());
                     }
+                    export.close();
                     view.getInput(Config.ConsoleStrings.CONTUNUE.getTitle());
                     break;
 
                 // export 2
                 case 6:
-                    export = new CSVexport(Config.getPathString());
-                    if (export.connect() && export.saveInFile()){
+                    export = new CSVexport(Config.getPathCSV());
+                    if (export.connect() && export.saveInFile(model.getContacts())){
                         view.showError(Config.ConsoleStrings.SUCCESS_EXPORT.getTitle());
                     }
                     else{
                         view.showError(Config.Incorrect.ERROR_CONNECT.getTitle());
                     } 
+                    export.close();
                     view.getInput(Config.ConsoleStrings.CONTUNUE.getTitle());
                     break;
                 

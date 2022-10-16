@@ -1,10 +1,16 @@
 package MVP.Model.Classes.Export;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
 import Interfaces.IExport;
 
 public abstract class Export implements IExport {
     
-    private String filename;
+    protected String filename;
+    protected FileWriter formatter;
+    protected File file;
 
 
     public Export(String filename) {
@@ -14,6 +20,17 @@ public abstract class Export implements IExport {
 
     @Override
     public Boolean connect() {
-        return false;
+        try{
+            file = new File(filename);
+            formatter = new FileWriter(file, true);
+            return true;
+        }
+        catch(IOException ex){
+            return false;
+        }
+    }
+
+    public void close() throws IOException{
+        formatter.close();
     }
 }
